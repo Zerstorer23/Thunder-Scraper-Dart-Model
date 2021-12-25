@@ -13,15 +13,15 @@ class Scraper{
     if (response.statusCode == 200) {
       // Getting the html document from the response
       var document = parser.parse(response.body);
-      try {
-        print(document.firstChild!.text.toString());
+      var elements= document.children[0].;
+      for(var elem in elements){
+        print(elem.outerHtml);
         return true;
-      } catch (e) {
-        return false;
       }
     } else {
       return false;
     }
+    return true;
   }
   Future<bool> get(String url) async {
     // Getting the response from the targeted url
